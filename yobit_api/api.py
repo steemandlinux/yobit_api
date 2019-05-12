@@ -150,6 +150,7 @@ class TradeApi(YobitApi):
 
     def _get_headers(self, data: dict):
         data['nonce'] = str(time.time()-1557000000)[:11].replace('.', '')
+        print(data['nonce'])
         sign = hmac.new(
             self.secret_key.encode(),
             urlencode(data).encode(),
