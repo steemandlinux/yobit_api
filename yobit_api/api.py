@@ -50,7 +50,6 @@ class YobitApi:
 
 class PublicApi(YobitApi):
     API_URL = [
-        "https://yobit.io/api/3/{0}",
         "https://yobit.net/api/3/{0}",
     ]
 
@@ -134,7 +133,6 @@ class PublicApi(YobitApi):
 
 class TradeApi(YobitApi):
     API_URL = [
-        "https://yobit.io/tapi/",
         "https://yobit.net/tapi/"
     ]
 
