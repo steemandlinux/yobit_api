@@ -155,6 +155,7 @@ class TradeApi(YobitApi):
             self.secret_key.encode(),
             urlencode(data).encode(),
             hashlib.sha512).hexdigest()
+        print(urlencode(data).encode())
 
         return {
             'Content-Type': 'application/x-www-form-urlencoded',
