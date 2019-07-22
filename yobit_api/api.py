@@ -149,7 +149,7 @@ class TradeApi(YobitApi):
         self.USE_CLOUDFLARE_SCRAPE = use_cloudflare_scrape
 
     def _get_headers(self, data: dict):
-        data['nonce'] = str(time.time()-1557000000)[:10].replace('.', '')
+        data['nonce'] = str(int((time.time()-1563830656)*100))
         print(data['nonce'])
         sign = hmac.new(
             self.secret_key.encode(),
@@ -171,8 +171,10 @@ class TradeApi(YobitApi):
         data = {
             "method": "getInfo",
         }
-
-        return self._make_request(method="post", data=data, headers=self._get_headers(data)).get("result")
+        headers = self._get_headers(data)
+        print(headers)
+        print(data)
+        return self._make_request(method="post", data=data, headers=headers).get("result")
 
     def buy(self, pair: str, price: float or str, amount: float):
         """
